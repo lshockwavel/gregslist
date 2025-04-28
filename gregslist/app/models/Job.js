@@ -5,6 +5,7 @@ export class Job {
      * @param {{
      * id: string,
      * title: string,
+     * imgIconUrl: string,
      * company: string,
      * rate: number,
      * description: string,
@@ -27,7 +28,10 @@ export class Job {
         return /*html*/ `
         <div class="col-4">
             <div class="card mb-3">
-                <img src="${this.imgIconUrl}" class="job-icon card-img-top float-start img-fluid" alt="${this.company}">
+                <div class="card-header text-center">
+                    <h5>${this.company}</h5>
+                    <img src="${this.imgIconUrl}" class="job-icon img-fluid rounded" alt="${this.company}">
+                </div>
                 <div class="card-body">
                     <h5 class="card-title">${this.title} at ${this.company}</h5>
                     <p class="card-text">${this.description}</p>

@@ -26,42 +26,52 @@
   <main>
 
     <div class="container">
+      <h1 class="text-center">Welcome to gregslist</h1> <!-- REVIEW Will this break the container/row/col rule? -->
       <section class="row">
         <div class="col-12">
-          <h1 class="text-center">Welcome to gregslist</h1>
           <h2>Houses for Sale</h2>
           <hr />
         </div>
-        <form onsubmit="app.HouseController.createHouse()" class="row">
-          <div class="col-12">
+        <form onsubmit="app.HouseController.createHouse(event)">
+          <div class="col-12 bg-white rounded p-3 mb-3">
             <div class="row">
-              <div class="col-2">
-                <input type="text" name="bedrooms" id="house-bedrooms" placeholder="Bedrooms" required>
+              <div class="col-md-4 mb-2">
+                <label for="house-bedrooms">Bedroom</label>
+                <input minlength="0" maxlength="99" type="number" name="bedrooms" id="house-bedrooms" placeholder="Bedrooms" class="form-control">
               </div>
-              <div class="col-2">
-                <input type="text" name="bathrooms" id="house-bathrooms" placeholder="Bathrooms" required>
+              <div class="col-md-4 mb-2">
+                <label for="house-bathrooms">Bathroom</label>
+                <input minlength="0" maxlength="99" type="number" name="bathrooms" id="house-bathrooms" placeholder="Bathrooms" class="form-control">
               </div>
-              <div class="col-2">
-                <input type="text" name="price" id="house-price" placeholder="Price" required>
+              <div class="col-md-4 mb-2">
+                <label for="house-Price">Price</label>
+                <input min="1" max="999999999" type="number" name="price" id="house-price" placeholder="Price" class="form-control" required>
               </div>
-              <div class="col-2">
-                <input type="text" name="year" id="house-year" placeholder="Year" required>
+              <div class="col-md-4 mb-2">
+                <label for="house-year">Year</label>
+                <input type="number" min="1886" max="2025" name="year" id="house-year" placeholder="Year" class="form-control" value="2025" required>
               </div>
-              <div class="col-2">
-                <input type="text" name="sqft" id="house-sqft" placeholder="Square Feet" required>
+              <div class="col-md-4 mb-2">
+                <label for="house-sqft">Square Feet</label>
+                <input type="text" name="sqft" id="house-sqft" placeholder="Square Feet" class="form-control" required>
               </div>
-              <div class="col-2">
-                <input type="text" name="address" id="house-address" placeholder="Address" required>
+              <div class="col-md-4 mb-2">
+                <label for="house-address">Address</label>
+                <input type="text" name="address" id="house-address" placeholder="Address" class="form-control" required>
               </div>
-              <div class="col-2">
-                <input type="text" name="description" id="house-description" placeholder="Description" required>
+              <div class="col-md-12 mb-2">
+                <label for="house-imgUrl">URL for picture</label>
+                <input type="text" name="imgUrl" id="house-imgUrl" placeholder="Image URL" class="form-control" >
+              </div>
+              <div class="col-12 mb-2">
+                <label for="house-description">Description</label>
+                <!-- <input type="text" name="description" id="house-description" placeholder="Description" class="form-control"> -->
+                <textarea name="description" id="house-description" placeholder="Description" class="form-control" rows="4"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary mb-3 shadow rounded-pill">
+                Create House
+              </button>
             </div>
-            <div class="row">
-              <div class="col-12">
-                <input type="text" name="imgUrl" id="house-imgUrl" placeholder="Image URL">
-              </div>
-            </div>
-            <button type="submit" class="mb-3">Create House</button>
           </div>
         </form>
         <div class="col-12">
@@ -70,35 +80,44 @@
       </section>
       <section class="row">
         <div class="col-12">
-          <h2>Jobs Market</h2>
+          <h2>Job Market</h2>
           <hr />
         </div>
-        <form onsubmit="app.JobController.createJob()" class="row">
-          <div class="col-12">
+        <form onsubmit="app.JobController.createJob(event)">
+          <div class="col-12 bg-white rounded p-3 mb-3">
             <div class="row">
-              <div class="col-2">
-                <input type="text" name="company" id="job-company" placeholder="Company" required>
+              <div class="col-md-4 mb-2">
+                <label for="job-company">Company</label>
+                <input type="text" name="company" id="job-company" placeholder="Company Name" class="form-control" required>
               </div>
-              <div class="col-2">
-                <input type="text" name="jobTitle" id="job-jobTitle" placeholder="Job Title" required>
+              <div class="col-md-4 mb-2">
+                <label for="job-title">Job Title</label>
+                <input type="text" name="title" id="job-title" placeholder="Job Title" class="form-control" required>
               </div>
-              <div class="col-2">
-                <input type="text" name="rate" id="job-rate" placeholder="Salary" required>
+              <div class="col-md-4 mb-2">
+                <label for="job-rate">Salary</label>
+                <input type="number" name="rate" id="job-rate" placeholder="Salary (e.g., 50000)" class="form-control" required>
               </div>
-              <div class="col-2">
-                <input type="text" name="hours" id="job-hours" placeholder="Hours/Week" required>
+              <div class="col-md-4 mb-2">
+                <label for="job-hours">Hours/Week</label>
+                <input type="number" name="hours" id="job-hours" placeholder="Hours per Week" class="form-control" required>
               </div>
-              <div class="col-2">
-                <input type="text" name="description" id="job-description" placeholder="Description" required>
+              <div class="col-md-4 mb-2">
+                <label for="job-location">Location</label>
+                <input type="text" name="location" id="job-location" placeholder="Location" class="form-control" required>
               </div>
-              <div class="col-2">
-                <input type="text" name="Icon", id="job-icon", placeholder="Company Logo" required>
+              <div class="col-md-4 mb-2">
+                <label for="job-imgIconUrl">Company Logo URL</label>
+                <input type="text" name="imgIconUrl" id="job-imgIconUrl" placeholder="Logo Image URL" class="form-control">
               </div>
-              <div class="col-2">
-                <input type="text" name="location" id="job-location" placeholder="Location" required>
+              <div class="col-12 mb-2">
+                <label for="job-description">Description</label>
+                <textarea name="description" id="job-description" placeholder="Job Description" class="form-control" rows="4" required></textarea>
               </div>
+              <button type="submit" class="btn btn-success mb-3 shadow rounded-pill" style="background: linear-gradient(45deg, #198754, #20c997); border: none;">
+                Create Job
+              </button>
             </div>
-            <button type="submit">Create Job</button>
           </div>
         </form>
         <div class="col-12">

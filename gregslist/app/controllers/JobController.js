@@ -22,12 +22,12 @@ export class JobController {
     }
 
     /* 👷 */
-    createJob() {
+    createJob(event) {
         console.log('Creating job');
         event.preventDefault();
         const form = event.target;
         console.log(form);
-        console.log(form.description.value);
+        console.log(form.imgIconUrl.value);
 
         // const jobData = getFormData(form);
         const jobData = {

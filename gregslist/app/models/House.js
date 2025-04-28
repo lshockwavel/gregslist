@@ -17,8 +17,8 @@ export class House {
      */
     constructor(data) {
         this.id = generateId();
-        this.bedrooms = data.bedrooms;
-        this.bathrooms = data.bathrooms;
+        this.bedrooms = data.bedrooms || 0;
+        this.bathrooms = data.bathrooms || 0;
         this.year = data.year;
         this.price = data.price;
         this.imgUrl = data.imgUrl || 'https://images.unsplash.com/photo-1652512455891-11933272bc1f?q=80&w=2000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
@@ -31,7 +31,7 @@ export class House {
         return /*html*/ `
         <div class="col-4">
             <div class="card mb-3">
-                <img src="${this.imgUrl}" class="house-card" alt="${this.description}">
+                <img src="${this.imgUrl}" class="house-card rounded-top" alt="${this.description}">
                 <div class="card-body">
                     <h5 class="card-title">${this.bedrooms} bed, ${this.bathrooms} bath</h5>
                     <p class="card-text">${this.description}</p>

@@ -2,8 +2,6 @@ import { AppState } from "../AppState.js";
 import { houseService } from "../services/HouseService.js";
 
 
-
-
 export class HouseController {
     constructor() {
         console.log('HouseController loaded');
@@ -23,7 +21,7 @@ export class HouseController {
     }
 
     /* 👷 */
-    createHouse() {
+    createHouse(event) {
         console.log('Creating house');
         event.preventDefault();
         const form = event.target;
